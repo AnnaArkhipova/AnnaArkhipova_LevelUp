@@ -1,8 +1,9 @@
-package ru.levelup.Anna.Arkhipova.qa.homework_3.task_1.Food;
+package homework_3.task_1.Fridge;
 
-public class Liquid extends Fridge {
+public class Spice {
     public double kkal100g;
     public double weight;
+    public String name;
 
     public double getWeight() {
         return weight;
@@ -19,4 +20,13 @@ public class Liquid extends Fridge {
     public void setKkal(double kkal100g) {
         this.kkal100g = kkal100g;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }
+
