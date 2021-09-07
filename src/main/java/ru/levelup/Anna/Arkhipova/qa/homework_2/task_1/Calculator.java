@@ -20,7 +20,7 @@ public class Calculator {
         System.out.println("Enter first number:");
 
         while (!in.hasNextInt()) {
-            System.out.println("Enter A Positive Integer ");
+            System.out.println("Enter A Positive Integer");
             in.next();
         }
         num1 = in.nextInt();
