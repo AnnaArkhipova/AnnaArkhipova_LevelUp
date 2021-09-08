@@ -1,4 +1,4 @@
-package homework_3.task_1.Fridge;
+package homework_4.task_1.Fridge;
 
 public class Spice {
     public double kkal100g;

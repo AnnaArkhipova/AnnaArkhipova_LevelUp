@@ -1,6 +1,6 @@
-package homework_3.task_1.Dinner;
+package homework_4.task_1.Dinner;
 
-import homework_3.task_1.Fridge.Fridge;
+import homework_4.task_1.Fridge.Fridge;
 
 public class SortSalat extends Fridge{
     public SortSalat() {
