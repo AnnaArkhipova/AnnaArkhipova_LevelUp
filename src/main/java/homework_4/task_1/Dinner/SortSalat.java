@@ -2,18 +2,17 @@ package homework_4.task_1.Dinner;
 
 import homework_4.task_1.Fridge.Fridge;
 
-public class SortSalat extends Fridge{
+public class SortSalat extends Fridge {
     public SortSalat() {
         super();
-
     }
 
     public void sortproduct() {
-       double[] kkalprod = new double[4];
-       String [] nameprod = new String[4];
-       int out, in, i;
-       double dummy_kkal;
-       String dummy_name;
+        double[] kkalprod = new double[4];
+        String[] nameprod = new String[4];
+        int out, in, i;
+        double dummy_kkal;
+        String dummy_name;
 
         kkalprod[0] = tomato.getKkal();
         kkalprod[1] = cucumber.getKkal();
@@ -44,7 +43,7 @@ public class SortSalat extends Fridge{
             }
         }
         System.out.println("КАЛОРИЙНОСТЬ ПРОДУКТОВ В САЛАТЕ ПО ВОЗРАСТАНИЮ:");
-        for (i=0; i<=3; i++) {
+        for (i = 0; i <= 3; i++) {
             System.out.println(nameprod[i]);
             System.out.printf(" %.2f \n", kkalprod[i]);
         }

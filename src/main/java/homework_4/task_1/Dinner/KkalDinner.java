@@ -69,7 +69,6 @@ public class KkalDinner extends Fridge {
 
         totalkkal_salat = totalkkal_tomato + totalkkal_cucumber + totalkkal_salad + totalkkal_olive_oil;
 
-
         totalkkal_borsch =
             totalkkal_beef + totalkkal_potatoes + totalkkal_cabbage + totalkkal_carrot + totalkkal_beet
                 + totalkkal_onion + totalkkal_water + totalkkal_salt + totalkkal_pepper;
@@ -105,7 +104,7 @@ public class KkalDinner extends Fridge {
             return;
         }
 
-        if(totalkkal_beef > min_kkal & totalkkal_beef < max_kkal){
+        if (totalkkal_beef > min_kkal & totalkkal_beef < max_kkal) {
             System.out.printf("Калорийность мяса в борще = %.2f \n", totalkkal_beef);
             str = "Калорийность мяса в борще = " + String.valueOf(totalkkal_beef) + "\n";
             out.write(str);
@@ -150,7 +149,7 @@ public class KkalDinner extends Fridge {
         out.write("ПЕРЕСЧЕТ НА ОДНУ ПОРЦИЮ. \n");
 
         System.out.println("На сколько порций делить обед?:");
-                Scanner in3 = new Scanner(System.in);
+        Scanner in3 = new Scanner(System.in);
         try {
             amount = Integer.parseInt(in3.nextLine());
             System.out.printf("Количество порций = %d \n", amount);
@@ -161,9 +160,9 @@ public class KkalDinner extends Fridge {
             return;
         }
         try {
-            kkal_borch = (int)totalkkal_borsch / amount;
-            kkal_salat = (int)totalkkal_salat / amount;
-        } catch (Exception ex){
+            kkal_borch = (int) totalkkal_borsch / amount;
+            kkal_salat = (int) totalkkal_salat / amount;
+        } catch (Exception ex) {
             System.out.println(ex.toString());
             return;
         }
