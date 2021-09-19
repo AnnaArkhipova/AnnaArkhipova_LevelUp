@@ -8,15 +8,75 @@
   <artifactId>AnnaArkhipova_LevelUp</artifactId>
   <version>1.0-SNAPSHOT</version>
 
+
   <properties>
     <maven.compiler.source>11</maven.compiler.source>
     <maven.compiler.target>11</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
+    <testng.version>7.4.0</testng.version>
     <checkstyle.version>8.42</checkstyle.version>
 
     <maven-checkstyle-plugin.version>3.1.2</maven-checkstyle-plugin.version>
+    <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
+    <maven-failsafe-plugin.version>3.0.0-M5</maven-failsafe-plugin.version>
   </properties>
+
+
+  <profiles>
+    <profile>
+      <id>calculator-all-test-suite</id>
+
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+
+      <properties>
+        <suite.xml.file>${project.basedir}src\test\resources\unit.tools\CalculatorAllTestsSuite.xml</suite.xml.file>
+      </properties>
+    </profile>
+
+    <profile>
+      <id>calculator-another-test-suite</id>
+
+      <properties>
+        <suite.xml.file>${project.basedir}src\test\resources\unit.tools\CalculatorAnotherTestsSuite.xml</suite.xml.file>
+      </properties>
+    </profile>
+
+    <profile>
+      <id>calculator-sin-cos-tg-ctg-test-suite</id>
+
+      <properties>
+        <suite.xml.file>${project.basedir}src\test\resources\unit.tools\CalculatorSinCosTgCtgTestsSuite.xml</suite.xml.file>
+      </properties>
+    </profile>
+
+    <profile>
+      <id>calculator-sub-div-test-suite</id>
+
+      <properties>
+        <suite.xml.file>${project.basedir}src\test\resources\unit.tools\CalculatorSubDivTestsSuite.xml</suite.xml.file>
+      </properties>
+    </profile>
+
+    <profile>
+      <id>calculator-sum-mult-test-suite</id>
+
+      <properties>
+        <suite.xml.file>${project.basedir}src\test\resources\unit.tools\CalculatorSumNultTestsSuite.xml</suite.xml.file>
+      </properties>
+    </profile>
+  </profiles>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.testng</groupId>
+      <artifactId>testng</artifactId>
+      <version>7.4.0</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
 
   <build>
     <plugins>
@@ -24,13 +84,24 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-checkstyle-plugin</artifactId>
         <version>${maven-checkstyle-plugin.version}</version>
+
         <dependencies>
           <dependency>
             <groupId>com.puppycrawl.tools</groupId>
             <artifactId>checkstyle</artifactId>
             <version>${checkstyle.version}</version>
           </dependency>
+
+          <dependency>
+            <groupId>ru.levelup.qa.at</groupId>
+            <artifactId>calculator</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>C:/Users/Anna/.m2/repository/ru/levelup/qa/at/calculator/calculator-1.0.jar</systemPath>
+          </dependency>
+
         </dependencies>
+
         <configuration>
           <configLocation>
             <!--  pay attention to use exact url for checkstyle plugin ruleset  -->
@@ -52,6 +123,28 @@
           </execution>
         </executions>
       </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>${maven-surefire-plugin.version}</version>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-failsafe-plugin</artifactId>
+        <version>${maven-failsafe-plugin.version}</version>
+        <executions>
+          <execution>
+            <id>integration-test</id>
+            <phase>integration-test</phase>
+            <goals>
+              <goal>integration-test</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
     </plugins>
   </build>
 

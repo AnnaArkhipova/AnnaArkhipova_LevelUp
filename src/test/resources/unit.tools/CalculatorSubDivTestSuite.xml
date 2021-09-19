@@ -1,0 +1,17 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="Calculator SubDiv Test Suite">
+
+  <test name="Calculator SubDiv Test Tests">
+
+    <classes>
+
+      <class name="homework.task1.CalculatorSubTest"/>
+
+      <class name="homework.task1.CalculatorDivTest"/>
+
+    </classes>
+
+  </test>
+
+</suite>
