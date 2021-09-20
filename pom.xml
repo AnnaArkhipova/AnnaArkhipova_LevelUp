@@ -61,7 +61,7 @@
     </profile>
 
     <profile>
-      <id>CalculatorSumMultTestSuite</id>
+      <id>calculator-sum-mult-test-suite</id>
 
       <activation>
         <activeByDefault>true</activeByDefault>
