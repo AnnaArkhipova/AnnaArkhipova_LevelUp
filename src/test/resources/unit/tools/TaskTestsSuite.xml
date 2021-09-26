@@ -1,0 +1,17 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="Task_1">
+
+  <test name="Task_1">
+
+    <classes>
+
+      <class name="ru.levelup.at.homework6.task1.DraftOfLetter"/>
+      <class name="ru.levelup.at.homework6.task2.RuleOfLetter"/>
+      <class name="ru.levelup.at.homework6.task3.DelLetter"/>
+
+    </classes>
+
+  </test>
+
+</suite>
