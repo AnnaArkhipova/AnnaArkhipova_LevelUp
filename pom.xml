@@ -22,53 +22,16 @@
     <maven-failsafe-plugin.version>3.0.0-M5</maven-failsafe-plugin.version>
   </properties>
 
-
   <profiles>
     <profile>
-      <id>calculator-all-test-suite</id>
-
-      <activation>
-        <activeByDefault>false</activeByDefault>
-      </activation>
-
-      <properties>
-        <suite.xml.file>${project.basedir}/src/test/resources/unit/tools/CalculatorAllTestsSuite.xml</suite.xml.file>
-      </properties>
-    </profile>
-
-    <profile>
-      <id>calculator-another-test-suite</id>
-
-      <properties>
-        <suite.xml.file>${project.basedir}/src/test/resources/unit/tools/CalculatorAnotherTestSuite.xml</suite.xml.file>
-      </properties>
-    </profile>
-
-    <profile>
-      <id>calculator-sin-cos-tg-ctg-test-suite</id>
-
-      <properties>
-        <suite.xml.file>${project.basedir}/src/test/resources/unit/tools/CalculatorSinCosTgCtgTestSuite.xml</suite.xml.file>
-      </properties>
-    </profile>
-
-    <profile>
-      <id>calculator-sub-div-test-suite</id>
-
-      <properties>
-        <suite.xml.file>${project.basedir}/src/test/resources/unit/tools/CalculatorSubDivTestSuite.xml</suite.xml.file>
-      </properties>
-    </profile>
-
-    <profile>
-      <id>calculator-sum-mult-test-suite</id>
+      <id>mail-all-test-suite</id>
 
       <activation>
         <activeByDefault>true</activeByDefault>
       </activation>
 
       <properties>
-        <suite.xml.file>${project.basedir}/src/test/resources/unit/tools/CalculatorSumMultTestSuite.xml</suite.xml.file>
+        <suite.xml.file>${project.basedir}/src/test/resources/unit/tools/TaskTestsSuite.xml</suite.xml.file>
       </properties>
     </profile>
   </profiles>
@@ -82,12 +45,11 @@
     </dependency>
 
     <dependency>
-      <groupId>ru.levelup.qa.at</groupId>
-      <artifactId>calculator</artifactId>
-      <version>1.0</version>
-      <scope>system</scope>
-      <systemPath>${project.basedir}/src/main/resources/calculator-1.0.jar</systemPath>
+      <groupId>org.seleniumhq.selenium</groupId>
+      <artifactId>selenium-java</artifactId>
+      <version>3.141.59</version>
     </dependency>
+
   </dependencies>
 
   <build>
@@ -133,6 +95,7 @@
         <version>${maven-surefire-plugin.version}</version>
         <configuration>
           <suiteXmlFiles>
+            <!--suppress UnresolvedMavenProperty -->
             <suiteXmlFile>${suite.xml.file}</suiteXmlFile>
           </suiteXmlFiles>
         </configuration>
