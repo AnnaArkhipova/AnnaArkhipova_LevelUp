@@ -49,6 +49,11 @@ public class DraftOfLetter extends RunBrowser {
         action.moveToElement(themeNewLetter);
         themeNewLetter.sendKeys("Test");
 
+        WebElement bodyNewLetter = driver.findElement(By.cssSelector("div[role='textbox'] div"));
+        //WebElement bodyNewLetter = driver.findElement(By.xpath("//div[@role='textbox']/div"));
+        action.moveToElement(bodyNewLetter);
+        bodyNewLetter.sendKeys("Test");
+
         List<WebElement> saveLetter = driver.findElements(By.className("button2__txt"));
         System.out.println("Элемент:" + saveLetter.get(2).getText());
         action.moveToElement(saveLetter.get(2))
@@ -72,7 +77,7 @@ public class DraftOfLetter extends RunBrowser {
         assertEquals(listLettersTitle.get(0).getText(), "Test",
             "Тема в сохраненном письме не валидна!!!");
         List<WebElement> listLettersBody = driver.findElements(By.className("ll-sp__normal"));
-        assertEquals(listLettersBody.get(0).getText(), "-- Ann Arkhipova",
+        assertEquals(listLettersBody.get(0).getText(), "Test -- Ann Arkhipova",
             "Текст сохраненного письма не валиден!!!");
 
         action.moveToElement(listLettersBody.get(0))

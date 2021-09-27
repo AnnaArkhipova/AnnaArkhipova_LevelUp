@@ -48,14 +48,14 @@ public class RuleOfLetter extends RunBrowser {
         WebElement themeNewLetter = driver.findElement(By.name("Subject"));
         action.moveToElement(themeNewLetter);
         themeNewLetter.sendKeys("Тест");
+        WebElement bodyNewLetter = driver.findElement(By.cssSelector("div[role='textbox'] div"));
+        //WebElement bodyNewLetter = driver.findElement(By.xpath("//div[@role='textbox']/div"));
+        action.moveToElement(bodyNewLetter);
+        bodyNewLetter.sendKeys("Тест");
 
         List<WebElement> sendLetter = driver.findElements(By.className("button2__txt"));
         System.out.println("Элемент:" + sendLetter.get(1).getText());
         action.moveToElement(sendLetter.get(1))
-              .click()
-              .perform();
-        WebElement confirmNewLetter = driver.findElement(By.className("inner-0-2-93"));
-        action.moveToElement(confirmNewLetter)
               .click()
               .perform();
         WebElement closeConfirmMessage = driver.findElement(By.className("ico_16-close"));
@@ -83,7 +83,7 @@ public class RuleOfLetter extends RunBrowser {
         assertEquals(listLettersTitle.get(0).getText(), "Тест",
             "Тема в письме не валидна!!!");
         List<WebElement> listLettersBody = driver.findElements(By.className("ll-sp__normal"));
-        assertEquals(listLettersBody.get(0).getText(), "-- Ann Arkhipova",
+        assertEquals(listLettersBody.get(0).getText(), "Тест -- Ann Arkhipova",
             "Текст письма не валиден!!!");
 
         WebElement exitBox = driver.findElement(By.className("ph-project__user-name"));

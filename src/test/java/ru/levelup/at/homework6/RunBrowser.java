@@ -31,8 +31,6 @@ public class RunBrowser {
     public void tearDown() {
         driver.quit();
     }
-
-
 }
 
 
