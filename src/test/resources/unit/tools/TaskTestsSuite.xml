@@ -6,9 +6,9 @@
 
     <classes>
 
-      <class name="ru.levelup.at.homework6.task1.DraftOfLetter"/>
-      <class name="ru.levelup.at.homework6.task2.RuleOfLetter"/>
-      <class name="ru.levelup.at.homework6.task3.DelLetter"/>
+      <class name="ru.levelup.at.homework7.task1.DraftOfLetterTest"/>
+      <class name="ru.levelup.at.homework7.task2.RuleOfLetterTest"/>
+      <class name="ru.levelup.at.homework7.task3.DelLetterTest"/>
 
     </classes>
 
