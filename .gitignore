@@ -2,3 +2,5 @@
 .idea
 target
 *.class
+**/allure-results
+**/.allure

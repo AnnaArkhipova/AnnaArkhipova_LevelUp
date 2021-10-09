@@ -16,10 +16,13 @@
 
     <testng.version>7.4.0</testng.version>
     <checkstyle.version>8.42</checkstyle.version>
+    <assertj-core.version>3.20.2</assertj-core.version>
+    <aspectj.version>1.9.6</aspectj.version>
 
     <maven-checkstyle-plugin.version>3.1.2</maven-checkstyle-plugin.version>
     <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
     <maven-failsafe-plugin.version>3.0.0-M5</maven-failsafe-plugin.version>
+    <allure.version>2.15.0</allure.version>
   </properties>
 
   <profiles>
@@ -33,6 +36,7 @@
       <properties>
         <suite.xml.file>${project.basedir}/src/test/resources/unit/tools/TaskTestsSuite.xml</suite.xml.file>
       </properties>
+
     </profile>
   </profiles>
 
@@ -48,6 +52,12 @@
       <groupId>org.seleniumhq.selenium</groupId>
       <artifactId>selenium-java</artifactId>
       <version>3.141.59</version>
+    </dependency>
+
+    <dependency>
+      <groupId>io.qameta.allure</groupId>
+      <artifactId>allure-testng</artifactId>
+      <version>${allure.version}</version>
     </dependency>
 
   </dependencies>
@@ -94,11 +104,20 @@
         <artifactId>maven-surefire-plugin</artifactId>
         <version>${maven-surefire-plugin.version}</version>
         <configuration>
+          <argLine>
+            -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+          </argLine>
           <suiteXmlFiles>
-            <!--suppress UnresolvedMavenProperty -->
-            <suiteXmlFile>${suite.xml.file}</suiteXmlFile>
+              <suiteXmlFile>${suite.xml.file}</suiteXmlFile>
           </suiteXmlFiles>
         </configuration>
+        <dependencies>
+          <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>${aspectj.version}</version>
+          </dependency>
+        </dependencies>
       </plugin>
 
       <plugin>
@@ -118,5 +137,20 @@
 
     </plugins>
   </build>
+
+  <reporting>
+    <excludeDefaults>true</excludeDefaults>
+
+    <plugins>
+      <plugin>
+        <groupId>io.qameta.allure</groupId>
+        <artifactId>allure-maven</artifactId>
+        <version>2.10.0</version>
+        <configuration>
+          <reportVersion>${allure.version}</reportVersion>
+        </configuration>
+      </plugin>
+    </plugins>
+  </reporting>
 
 </project>

@@ -1,25 +1,36 @@
-package ru.levelup.at.homework7.task2;
+package ru.levelup.at.homework9.task2;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.UnsupportedEncodingException;
 import java.util.Scanner;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import ru.levelup.at.homework7.RunBrowser;
+import ru.levelup.at.homework9.RunBrowser;
 
+@Epic("Правило")
+@Feature("Сортировка входящих по определенному правилу")
+@Story("Написать письмо себе, отправить, проверить работу правила, а также адрес, тему, текст письма")
 public class RuleOfLetterTest extends RunBrowser {
 
-    @Test
-    public void ruleLetterTest() throws FileNotFoundException {
+    @Test(description = "Тест работы правила")
+    @Description("Проверка работы правила для входящих писем")
+    public void ruleLetterTest() throws FileNotFoundException, UnsupportedEncodingException {
 
         Scanner scanner = new Scanner(new File("src/test/resources/unit/tools/data.txt"));
         String[] data = new String[14];
+        String str;
         int i = 0;
         while (scanner.hasNextLine()) {
-            data[i] = scanner.nextLine();
+            str = scanner.nextLine();
+            data[i] = new String(str.getBytes(), "UTF-8");
             i++;
         }
 

@@ -5,7 +5,7 @@ Test
 Test letter
 Test letter -- Ann Arkhipova
  letter
-arkhipova_21@list.ru
+Ann Arkhipova <arkhipova_21@list.ru>
 Тест
 Тестовое письмо
 Тестовое письмо -- Ann Arkhipova

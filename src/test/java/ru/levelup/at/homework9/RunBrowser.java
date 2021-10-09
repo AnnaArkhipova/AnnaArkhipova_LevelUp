@@ -1,4 +1,4 @@
-package ru.levelup.at.homework7;
+package ru.levelup.at.homework9;
 
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;

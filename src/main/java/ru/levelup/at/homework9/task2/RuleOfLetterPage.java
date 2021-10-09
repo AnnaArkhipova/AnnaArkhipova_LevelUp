@@ -1,4 +1,4 @@
-package ru.levelup.at.homework7.task3;
+package ru.levelup.at.homework9.task2;
 
 import java.util.List;
 import org.openqa.selenium.By;
@@ -6,11 +6,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
-public class DelLetterPage {
+public class RuleOfLetterPage {
 
     public WebDriver driver;
 
-    public DelLetterPage(WebDriver driver) {
+    public RuleOfLetterPage(WebDriver driver) {
         this.driver = driver;
     }
 
@@ -40,8 +40,7 @@ public class DelLetterPage {
         return writeNewLetter.isDisplayed();
     }
 
-    public int newLetter(String addr, String theme, String body) {
-
+    public int sendLetter(String addr, String subj, String body) {
         WebElement writeNewLetter = driver.findElement(By.className("compose-button"));
         Actions action = new Actions(driver);
         action.moveToElement(writeNewLetter)
@@ -53,14 +52,14 @@ public class DelLetterPage {
         addressNewLetter.sendKeys(addr);
         WebElement themeNewLetter = driver.findElement(By.name("Subject"));
         action.moveToElement(themeNewLetter);
-        themeNewLetter.sendKeys(theme);
+        themeNewLetter.sendKeys(subj);
         WebElement bodyNewLetter = driver.findElement(By.cssSelector("div[role='textbox'] div"));
         action.moveToElement(bodyNewLetter);
         bodyNewLetter.sendKeys(body);
 
-        List<WebElement> saveLetter = driver.findElements(By.className("button2__txt"));
-        //System.out.println("Элемент:" + saveLetter.get(1).getText());
-        action.moveToElement(saveLetter.get(1))
+        List<WebElement> sendLetter = driver.findElements(By.className("button2__txt"));
+        //System.out.println("Элемент:" + sendLetter.get(1).getText());
+        action.moveToElement(sendLetter.get(1))
               .click()
               .perform();
         WebElement closeConfirmMessage = driver.findElement(By.className("ico_16-close"));
@@ -69,49 +68,36 @@ public class DelLetterPage {
               .perform();
 
         List<WebElement> nameFolder = driver.findElements(By.className("nav__item"));
-        nameFolder.get(4).click();
+        nameFolder.get(6).click();
         List<WebElement> sentListLetters = driver.findElements(By.className("llc"));
         //System.out.print(sentListLetters.size());
         return sentListLetters.size();
     }
 
+    public int ruleLetter() {
+
+        List<WebElement> nameFolder = driver.findElements(By.className("nav__item"));
+        nameFolder.get(5).click();
+        List<WebElement> ruleListLetters = driver.findElements(By.className("llc"));
+        return ruleListLetters.size();
+    }
+
     public String mailPage() {
-        List<WebElement> addrOfMail = driver.findElements(By.className("ll-crpt"));
-        //System.out.println(addrOfMail.get(0).getAttribute("title"));
-        return addrOfMail.get(0).getAttribute("title");
+
+        List<WebElement> listLettersCrpt = driver.findElements(By.className("ll-crpt"));
+        return listLettersCrpt.get(0).getAttribute("title");
     }
 
     public String themePage() {
-        List<WebElement> themeOfMail = driver.findElements(By.className("ll-sj__normal"));
-        return themeOfMail.get(0).getText();
+
+        List<WebElement> listLettersTitle = driver.findElements(By.className("ll-sj__normal"));
+        return listLettersTitle.get(0).getText();
     }
 
     public String bodyPage() {
-        List<WebElement> bodyOfMail = driver.findElements(By.className("ll-sp__normal"));
-        return bodyOfMail.get(0).getText();
-    }
 
-    public int checkSendLetter() {
-
-        WebElement selAllLetter = driver.findElement(By.className("button2__explanation"));
-        Actions action = new Actions(driver);
-        action.moveToElement(selAllLetter)
-              .click()
-              .perform();
-        List<WebElement> clickDel = driver.findElements(By.className("button2__txt"));
-        //System.out.println("Элемент:" + clickDel.get(2).getText());
-        action.moveToElement(clickDel.get(2))
-              .click()
-              .perform();
-        WebElement clickConfirm = driver.findElement(By.className("layer__submit-button"));
-        action.moveToElement(clickConfirm)
-              .click()
-              .perform();
-
-        List<WebElement> nameFolder = driver.findElements(By.className("nav__item"));
-        nameFolder.get(10).click();
-        List<WebElement> dumpListLetters = driver.findElements(By.className("llc"));
-        return dumpListLetters.size();
+        List<WebElement> listLettersBody = driver.findElements(By.className("ll-sp__normal"));
+        return listLettersBody.get(0).getText();
     }
 
     public void exitMail() {

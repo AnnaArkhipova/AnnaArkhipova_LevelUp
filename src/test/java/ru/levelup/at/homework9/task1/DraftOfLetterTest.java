@@ -1,25 +1,37 @@
-package ru.levelup.at.homework7.task1;
+package ru.levelup.at.homework9.task1;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertNotEquals;
 import static org.testng.Assert.assertTrue;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.UnsupportedEncodingException;
 import java.util.Scanner;
 import org.testng.annotations.Test;
-import ru.levelup.at.homework7.RunBrowser;
+import ru.levelup.at.homework9.RunBrowser;
+
+@Epic("Черновик")
+@Feature("Сохранение письма в черновиках")
+@Story("Написать письмо, сохранить в черновиках, проверить адрес, тему, текст и отправить")
 
 public class DraftOfLetterTest extends RunBrowser {
 
-    @Test
-    public void draftLetterTest() throws FileNotFoundException {
+    @Test(description = "Тест отправки черновика")
+    @Description("Проверка отправки письма, сохраненного в черновиках")
+    public void draftLetterTest() throws FileNotFoundException, UnsupportedEncodingException {
 
         Scanner scanner = new Scanner(new File("src/test/resources/unit/tools/data.txt"));
         String[] data = new String[14];
+        String str;
         int i = 0;
         while (scanner.hasNextLine()) {
-            data[i] = scanner.nextLine();
+            str = scanner.nextLine();
+            data[i] = new String(str.getBytes(), "UTF-8");
             i++;
         }
 
