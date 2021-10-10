@@ -2,13 +2,39 @@
 
 <suite name="Task_1">
 
-  <test name="Task_1">
+  <test name="Task" preserve-order="true">
 
     <classes>
 
-      <class name="ru.levelup.at.homework9.task1.DraftOfLetterTest"/>
-      <class name="ru.levelup.at.homework9.task2.RuleOfLetterTest"/>
-      <class name="ru.levelup.at.homework9.task3.DelLetterTest"/>
+      <class name="ru.levelup.at.homework8.RestAssuredUsersTest">
+        <methods>
+          <include name="getAllUserTest"/>
+          <include name="getOneUserTest"/>
+          <include name="changeUserTest"/>
+          <include name="deleteUserTest"/>
+          <include name="createUserTest"/>
+        </methods>
+      </class>
+
+      <class name="ru.levelup.at.homework8.RestAssuredPostsTest">
+        <methods>
+          <include name="getAllPostTest"/>
+          <include name="getOnePostTest"/>
+          <include name="changePostTest"/>
+          <include name="deletePostTest"/>
+          <include name="createPostTest"/>
+        </methods>
+      </class>
+
+      <class name="ru.levelup.at.homework8.RestAssuredCommentsTest">
+        <methods>
+          <include name="getAllCommentTest"/>
+          <include name="getOneCommentTest"/>
+          <include name="changeCommentTest"/>
+          <include name="deleteCommentTest"/>
+          <include name="createCommentTest"/>
+        </methods>
+      </class>
 
     </classes>
 
